@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>form</title>
+
+</head>
+
+<body style="background-image: url(./assets/wp5176299-aesthetic-sunset-shots-wallpapers.jpg);background-size: contain;">
+
+    <div class="container rounded mt-5 mb-5 px-5" id="back"
+        style="border: 2px solid black; background-color: rgb(194, 191, 191,0.7);">
+
+        <form style="z-index: 2;" action="form_validation_output.html" method="get">
+            <h1 class="text-center" style="opacity:10em;">REGISTRATION FORM</h1>
+
+            <!--------------------------------------name------------------------------------------------------->
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="firstname">
+                        <p style="font-weight: 500;">First Name:</p>
+                    </label>
+                    <input type="text" id="firstname" name="firstname" class="form-control" placeholder="first name"
+                        required validate>
+                    <span style="font-size: 12px; color:red;" id="userNamealert1"></span>
+                </div>
+                <div class="col-sm-6">
+                    <label for="secondname">
+                        <p style="font-weight: 500;">Second Name:</p>
+
+                    </label>
+                    <input type="text" id="secondname" name="secondname" class="form-control" placeholder="second name"
+                        required validate>
+                    <span style="font-size: 12px; color:red;" id="userNamealert2"></span>
+                </div>
+            </div>
+
+            <!----------------------------------------email----------------------------------------------------->
+            <div class="mt-3">
+                <label for="email"><span style="font-weight: 500;">E-mail:</span></label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="abc123@gmail.com"
+                    required>
+                <span style="font-size: 12px; color:red;" id="userMailalert"></span>
+            </div>
+            <!-----------------------------------------phone----------------------------------------------------->
+            <div class="row">
+                <div class="col-sm-6 mt-3">
+                    <label for="phone"><span style="font-weight: 500;">Phone number:</span></label>
+                    <input class="form-control" type="tel" id="phone" name="phone" required>
+                    <span style="font-size: 12px; color:red;" id="phoneAlert"></span>
+                </div>
+
+                <!----------------------------------date of birth------------------------------------------------->
+                <div class="col-sm-6 mt-3">
+                    <label for="dob"><span style="font-weight: 500;">Date of birth:</span></label>
+                    <input class="form-control" type="date" id="dob" name="dob">
+                    <span style="font-size: 12px; color:red;" id="userBirthalert"></span>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <!--------------------------------------gender---------------------------------------------------->
+                <div class="col-sm-6">
+                    <span style="font-weight: 500;">Gender:</span>
+                    <div>
+                        <div class="form-check">
+                            <label for="gender1"><span style="font-weight: 500;">Male</span></label>
+                            <input type="radio" id="gender1" name="gender" class="form-check-input" value="male"
+                                onchange="genderr()">
+
+                        </div>
+                        <div class="form-check">
+                            <label for="gender2"><span style="font-weight: 500;">Female</span></label>
+                            <input type="radio" id="gender2" name="gender" class="form-check-input" value="female"
+                                onchange="genderr()">
+
+                        </div>
+                        <div class="form-check">
+                            <label for="gender3"><span style="font-weight: 500;">Others</span></label>
+                            <input type="radio" id="gender3" name="gender" class="form-check-input" value="others"
+                                onchange="genderr()">
+                        </div>
+                        <span style="font-size: 12px; color:red;" id="userGenderalert"></span>
+                    </div>
+                </div>
+                <!----------------------------------------language------------------------------------------------->
+                <div class="col-sm-6">
+                    <span style="font-weight: 500;">Languages:</span>
+                    <div class="form-check">
+                        <input type="checkbox" id="check1" name="language" value="English" class="form-check-input">
+
+                        <label for="check1"><span style="font-weight: 500;">English</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="check2" name="language" value="Tamil" class="form-check-input">
+
+                        <label for="check2"><span style="font-weight: 500;">Tamil</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="check3" name="language" value="Malayalam" class="form-check-input">
+
+                        <label for="check3"><span style="font-weight: 500;">Malayalam</span></label>
+                    </div>
+                    <span style="font-size: 12px; color:red;" id="languageAlert"></span>
+                </div>
+
+                <!----------------------------------------password------------------------------------------------->
+                <div class="row">
+                    <div class="col-sm-6 mt-3">
+                        <label for="password"><span style="font-weight: 500;">Password:</span></label>
+                        <input type="password" id="password1" name="password" class="form-control">
+                        <span style="font-size: 12px; color:red;" id="userPassalert1"></span>
+                    </div>
+                    <div class="col-sm-6 mt-3">
+                        <label for="password"><span style="font-weight: 500;">Confirm Password:</span></label>
+                        <input type="password" id="password2" name="password" class="form-control">
+                        <span style="font-size: 12px; color:red;" id="userPassalert2"></span>
+                    </div>
+                </div>
+                <!-----------------------------------------photo-------------------------------------------------->
+                <div class="row-sm-1">
+                    <label for="file"><span style="font-weight: 500;">Your Photo:</span></label>
+                    <input type="file" id="file" accept="image/*" name="file" class="form-control">
+                    <span style="font-size: 12px; color:red;" id="picAlert"></span>
+                </div>
+
+
+                <!----------------------------------------address------------------------------------------------->
+                <div class="row-sm-1">
+                    <label for="address"><span style="font-weight: 500;">Address:</span></label>
+                    <textarea id="address" class="form-control" style="height: 20px;"></textarea>
+                    <span style="font-size: 12px; color:red;" id="address_home_alert"></span>
+
+                </div>
+                <!----------------------------------------course-------------------------------------------------->
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <label for="course"><span style="font-weight: 500;">Select Course:</span> </label>
+                        <select class="form-select" id="course" name="course">
+                            <option value="angular">Angular</option>
+                            <option value="react">React</option>
+                            <option value="node.js">node.js</option>
+                            <option value="php">PHP</option>
+                        </select>
+
+                    </div>
+                    <!-------------------------------------college-------------------------------------------------->
+                    <div class="col-sm-6">
+                        <label for="college"><span style="font-weight: 500;">College:</span> </label>
+                        <input class="form-control" list="college" id="studies">
+                        <datalist id="college">
+                            <option value="PONJESLY">PONJESLY</option>
+                            <option value="XAVIER">XAVIER</option>
+                            <option value="NESAMONY">NESAMONY</option>
+                            <option value="AYYAPA">AYYAPA</option>
+                        </datalist>
+                        <span style="font-size: 12px; color:red;" id="studied_alert"></span>
+                    </div>
+                </div>
+                <!------------------------------------------button------------------------------------------------->
+                <div class="row">
+                    <button type="button" onclick="output()" class="btn btn-dark mt-3 mb-3">Submit</button>
+                </div>
+            </div>
+            <!----------------------------------------------output------------------------------------------------->
+            <div class="row" style="display: none;">
+                <div class="container border-3" id="myContainer">
+                    <h1>PREVIEW</h1>
+                    <p id="userName"></p>
+                    <p id="userMail"></p>
+                    <p id="userPhone"></p>
+                    <p id="userBirth"></p>
+                    <p id="userGender"></p>
+                    <p id="selectedLanguages"></p>
+                    <p id="userPass"></p>
+                    <p id="userAddress"></p>
+                    <p id="profile"></p>
+                    <p id="userSkill"></p>
+                    <p id="studied"></p>
+                    <img src="" id="picture" alt="">
+                </div>
+            </div>
+        </form>
+        <script>
+            if (localStorage.getItem('Name')) {
+                window.location = "form_validation_output.html";
+            }
+
+            //1.number
+            function mobile() {
+                let mobile_number = document.getElementById("phone").value;
+                let is_string = isNaN(mobile_number);
+
+
+                if (is_string == true) {
+                    document.getElementById("phoneAlert").innerHTML = "please enter valid input";
+                } else if (mobile_number <= 999999999) {
+                    document.getElementById("phoneAlert").innerHTML = "please enter valid input";
+                } else {
+                    if (mobile_number >= 999999999 || mobile_number <= 9999999999) {
+                        localStorage.setItem("phone", mobile_number);
+                        document.getElementById("userPhone").innerHTML = "mobile : " + mobile_number;
+                        document.getElementById("phoneAlert").innerHTML = "";
+
+                    } else {
+                        document.getElementById("phoneAlert").innerHTML = "please enter valid input";
+                    }
+                }
+            }
+
+
+            //2.email
+            function mail() {
+                let mail_id = document.getElementById("email").value;
+                mail_to_string = mail_id.toString();
+                mail_length = mail_to_string.length;
+                mail_last_string = mail_to_string.slice((mail_length - 4), (mail_length));
+
+                if (mail_last_string == ".com") {
+                    localStorage.setItem("E-mail", mail_id.toLowerCase());
+                    document.getElementById("userMail").innerHTML = "E-mail : " + mail_id.toLowerCase();
+                    document.getElementById("userMailalert").innerHTML = "";
+                } else if (mail_last_string == "") {
+                    document.getElementById("userMailalert").innerHTML = "please enter mail id";
+                } else {
+                    document.getElementById("userMailalert").innerHTML = "invalid";
+                }
+
+            }
+
+
+            //3. for name
+            function names() {
+
+                let first_name = document.getElementById("firstname").value;
+                let second_name = document.getElementById("secondname").value;
+                if (first_name == "") {
+                    if (second_name == "") {
+                        document.getElementById("userNamealert2").innerHTML = "please enter input";
+                    }
+                    document.getElementById("userNamealert1").innerHTML = "please enter input";
+                } else if (isNaN(first_name) == true) {
+
+                    if (isNaN(second_name) == true) {
+                        localStorage.setItem("Name", first_name.toUpperCase() + " " + second_name.toUpperCase());
+                        document.getElementById("userName").innerHTML = "Name : " + first_name.toUpperCase() + " " + second_name.toUpperCase();
+                        document.getElementById("userNamealert1").innerHTML = "";
+                        document.getElementById("userNamealert2").innerHTML = "";
+
+                    } else {
+                        document.getElementById("userNamealert2").innerHTML = "invalid";
+                    }
+
+                } else {
+                    document.getElementById("userNamealert1").innerHTML = "invalid";
+                }
+
+
+
+
+            }
+
+
+            //4.gender
+            function genderr() {
+                let option = document.querySelectorAll('input[name="gender"]');
+                let selected_value = "";
+                let flag = false;
+
+                for (let x of option) {
+                    if (x.checked) {
+                        flag = true;
+                        selected_value = x.value;
+                        localStorage.setItem("Gender", selected_value);
+                        document.getElementById("userGender").innerHTML = "Gender : " + selected_value;
+                        document.getElementById("userGenderalert").innerHTML = "";
+                        break;
+                    }
+                }
+
+                if (!flag) {
+                    document.getElementById("userGenderalert").innerHTML = "Please select a gender";
+                } else {
+                    document.getElementById("userGenderalert").innerHTML = "";
+                }
+            }
+
+
+            //5.language
+
+            function showSelectedLanguages() {
+                let checkboxes = document.querySelectorAll('input[name="language"]:checked');
+                let selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value).join(', ');
+
+                if (selectedValues) {
+                    localStorage.setItem("Languages", selectedValues);
+                    document.getElementById("selectedLanguages").innerHTML = "language" + selectedValues;
+                    document.getElementById("languageAlert").innerHTML = "";
+                } else {
+                    document.getElementById("selectedLanguages").innerHTML = "";
+                    document.getElementById("languageAlert").innerHTML = "Please select at least one language";
+                }
+
+
+            };
+
+
+
+            //6.date of birth
+            function birth() {
+                let dobInput = document.getElementById("dob").value;
+                let userBirth = document.getElementById("userBirth");
+                let userBirthalert = document.getElementById("userBirthalert");
+                let currentDate = new Date();
+                let birthDate = new Date(dobInput);
+
+
+                userBirth.innerHTML = "";
+                userBirthalert.innerHTML = "";
+
+                if (!dobInput) {
+                    userBirthalert.innerHTML = "Enter a valid date";
+                    return;
+                }
+
+                if (birthDate > currentDate) {
+                    userBirthalert.innerHTML = "Enter a valid date";
+
+                } else {
+                    document.getElementById("userBirth").innerHTML = "dob : " + dobInput;
+                    localStorage.setItem("D.O.B", dobInput);
+                    userBirthalert.innerHTML = "";
+
+                }
+            }
+
+            //7.password
+            function pass() {
+                let first_password = document.getElementById("password1").value;
+                let second_password = document.getElementById("password2").value;
+
+                if (first_password == "") {
+                    document.getElementById("userPassalert1").innerHTML = "enter password";
+
+                } else if (first_password != "") {
+
+                    if (second_password == "") {
+                        document.getElementById("userPassalert2").innerHTML = "re-enter password";
+                    } else if (first_password == second_password) {
+                        document.getElementById("userPass").innerHTML = "password : " + first_password;
+                        localStorage.setItem("password", first_password);
+                        document.getElementById("userPassalert1").innerHTML = "";
+                        document.getElementById("userPassalert2").innerHTML = "";
+                    } else {
+                        document.getElementById("userPassalert2").innerHTML = "re-check password";
+                    }
+                    document.getElementById("userPassalert1").innerHTML = "";
+
+                }
+            }
+
+            //8.address
+
+            function add() {
+                let home_address = document.getElementById("address").value;
+                if (home_address != "") {
+                    localStorage.setItem("address", home_address);
+                    document.getElementById("userAddress").innerHTML = "address" + home_address;
+                    document.getElementById("address_home_alert").innerHTML = "";
+                } else {
+                    document.getElementById("address_home_alert").innerHTML = "please enter address";
+                }
+            }
+
+
+            //9.course
+            function skill() {
+                let selected_course = document.getElementById("course").value;
+                localStorage.setItem("skill", selected_course);
+                document.getElementById("userSkill").innerHTML = "skill : " + selected_course;
+
+            }
+
+
+            //10.college
+            function clg() {
+                let graduated_college = document.getElementById("studies").value;
+                if (graduated_college == "") {
+                    document.getElementById("studied_alert").innerHTML = "mention your college";
+                } else {
+                    document.getElementById("studied").innerHTML = "college : " + graduated_college;
+                    localStorage.setItem("college", graduated_college);
+                    document.getElementById("studied_alert").innerHTML = "";
+                }
+
+            }
+
+
+            //11.photo
+
+            //       function profile() {
+            //     let photo = document.getElementById("file").files[0];
+            //     let picAlert = document.getElementById("picAlert");
+            //     let profileMessage = document.getElementById("profile");
+
+
+            //     picAlert.innerHTML = "";
+            //     profileMessage.innerHTML = "";
+
+            //     if (!photo) {
+            //         picAlert.innerHTML = "Update your picture";
+
+            //     } else {
+            //         let photo_size = photo.size;
+            //         let photo_size_mb = photo_size / 1000000;
+
+            //         if (photo_size_mb > 3) {
+            //             picAlert.innerHTML = "Image size is greater than 3MB";
+
+            //         } else {
+            //             document.getElementById("profile").innerHTML = "uploaded";
+            //             localStorage.setItem("photo", "photo");;
+
+            //         }
+            //     }
+            // }
+
+            function profile() {
+                let photo = document.getElementById("file").files[0];
+                let picAlert = document.getElementById("picAlert");
+                let profileMessage = document.getElementById("profile");
+
+                picAlert.innerHTML = "";
+                profileMessage.innerHTML = "";
+
+                if (!photo) {
+                    picAlert.innerHTML = "Update your picture";
+                } else {
+                    let photo_size = photo.size;
+                    let photo_size_mb = photo_size / 1000000;
+
+                    if (photo_size_mb > 3) {
+                        picAlert.innerHTML = "Image size is greater than 3MB";
+                    } else {
+                        // Displaying and storing the image
+                        readURL(photo);
+                    }
+                }
+            }
+
+            function readURL(input) {
+                if (input) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        let base64String = e.target.result;
+                        // Store the base64-encoded string in localStorage
+                        localStorage.setItem("photo", base64String);
+                        // Set the src attribute of the image to display it
+                        document.getElementById('bannerImg').src = base64String;
+                        // Optionally, show a success message
+                        document.getElementById("profile").innerHTML = "Uploaded";
+                    }
+
+                    reader.readAsDataURL(input);
+                }
+            }
+
+            // Retrieving the image from localStorage when the page loads
+
+
+
+
+            function output() {
+                // add();
+                // skill();
+                // clg();
+                // names();
+                // showSelectedLanguages();
+                // genderr();
+                // mail();
+                // mobile();
+                // birth();
+                // pass();
+                // profile();
+
+                let mobile_number = document.getElementById("phone").value;
+                let mail_id = document.getElementById("email").value;
+                let first_name = document.getElementById("firstname").value;
+                let second_name = document.getElementById("secondname").value;
+                let option = document.querySelectorAll('input[name="gender"]');
+                let checkboxes = document.querySelectorAll('input[name="language"]:checked');
+                let dobInput = document.getElementById("dob").value;
+                let first_password = document.getElementById("password1").value;
+                let second_password = document.getElementById("password2").value;
+                let home_address = document.getElementById("address").value;
+                let selected_course = document.getElementById("course").value;
+                let graduated_college = document.getElementById("studies").value;
+                let photo = document.getElementById("file").files[0];
+
+                if (mobile_number == "" || mail_id == "" || first_name == "" || second_name == "" || option == "" || checkboxes == "" || dobInput == "" || first_password == "" || second_password == "" || home_address == "" || selected_course == "" || graduated_college == "" || photo == "") {
+                    add();
+                    skill();
+                    clg();
+                    names();
+                    showSelectedLanguages();
+                    genderr();
+                    mail();
+                    mobile();
+                    birth();
+                    pass();
+                    profile();
+                    //  document.getElementById('myContainer').style.display = 'none';
+                } else {
+                    add();
+                    skill();
+                    clg();
+                    names();
+                    showSelectedLanguages();
+                    genderr();
+                    mail();
+                    mobile();
+                    birth();
+                    pass();
+                    profile();
+                    document.getElementById('myContainer').style.display = 'block';
+                    // window.location.assign("form_validation_output.html")        //backable same tab
+                    // var newWindow = window.open("form_validation_output.html");  // unbackable new tab
+                    location.replace("form_validation_output.html");                // unbackable same tab
+                }
+            }
+
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body style="background-image: url(./assets/wp5176299-aesthetic-sunset-shots-wallpapers.jpg);background-size: cover;">
+
+    <div class="container rounded mt-5 mb-5 py-2" id="back"
+        style="border: 2px solid black; background-color: rgb(194, 191, 191,0.7);">
+        <div class="row">
+            <h1 style="text-align: center;">DATA PREVIEW</h1>
+        </div>
+
+        <table class="table">
+            <tr>
+                <td style="width: 30%;">
+                    <p">Name : </p>
+                </td>
+                <td>
+                    <p id="Name"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30%;">
+                    <p>e-mail : </p>
+                </td>
+                <td>
+                    <p id="e-mail"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">mobile : </p>
+                </td>
+                <td>
+                    <p id="mobile"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">gender : </p>
+                </td>
+                <td>
+                    <p id="gender"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">address : </p>
+                </td>
+                <td>
+                    <p id="address"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">languages: </p>
+                </td>
+                <td>
+                    <p id="languages"> </p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">D.O.B :</p>
+                </td>
+                <td>
+                    <p id="D.O.B"></p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">College :</p>
+                </td>
+                <td>
+                    <p id="College"></p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">Skill:</p>
+                </td>
+                <td>
+                    <p id="Skill">Skill:</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">Password :</p>
+                </td>
+                <td>
+                    <p id="Password ">Password :</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="width: 30%;">Photo :</p>
+                </td>
+                <td>
+                    <img style='display:block; width:100px;height:100px;' id='picture'
+                        src='data:image/jpeg;base64' />
+
+                </td>
+            </tr>
+        </table>
+
+        <button id="clearButton" onclick="clearLocalStorage()">clear</button>
+
+    </div>
+    <script>
+        if (!localStorage.getItem('Name')) {
+            window.location = "validation_form_task.html";
+        }
+        document.getElementById("Name").innerHTML = (window.localStorage.getItem("Name"))
+        document.getElementById("e-mail").innerHTML = (window.localStorage.getItem("E-mail"))
+        document.getElementById("mobile").innerHTML = (window.localStorage.getItem("phone"))
+        document.getElementById("gender").innerHTML = (window.localStorage.getItem("Gender"))
+        document.getElementById("address").innerHTML = (window.localStorage.getItem("address"))
+        document.getElementById("languages").innerHTML = (window.localStorage.getItem("Languages"))
+        document.getElementById("D.O.B").innerHTML = (window.localStorage.getItem("D.O.B"))
+        document.getElementById("College").innerHTML = (window.localStorage.getItem("college"))
+        document.getElementById("Skill").innerHTML = (window.localStorage.getItem("skill"))
+        document.getElementById("Password ").innerHTML = (window.localStorage.getItem("password"))
+       // document.getElementById("Photo").innerHTML = (window.localStorage.getItem("photo"))
+
+
+
+        window.onload = function () {
+            let picture = document.getElementById('picture');
+            let storedImage = localStorage.getItem('photo');
+            if (storedImage) {
+                picture.src = storedImage;
+            }
+        }
+
+
+        // let flag = false;
+        // function clear() {
+        //     if (flag) {
+        //         localStorage.clear();
+        //         console.log("cleared")
+
+        //     }
+        //     flag=true;
+        // };
+        // let buttonClicked = true;
+        function clearLocalStorage() {
+            //     if (buttonClicked) {
+            //         document.getElementById("Name").innerHTML = "";
+            //         document.getElementById("e-mail").innerHTML = "";
+            //         document.getElementById("mobile").innerHTML = "";
+            //         document.getElementById("gender").innerHTML = "";
+            //         document.getElementById("address").innerHTML = "";
+            //         document.getElementById("languages").innerHTML = "";
+            //         document.getElementById("D.O.B").innerHTML = "";
+            //         document.getElementById("College").innerHTML = "";
+            //         document.getElementById("Skill").innerHTML = "";
+            //         document.getElementById("Password ").innerHTML = "";
+            //         document.getElementById("Photo").innerHTML = "";
+
+            //         localStorage.clear();
+            //         console.log("Local storage cleared");
+            //         // var newWindow = window.open("validation_form_task.html")
+            //         location.replace("validation_form_task.html");
+            //     } else {
+            //         document.getElementById("Name").innerHTML = (window.localStorage.getItem("Name"))
+            //         document.getElementById("e-mail").innerHTML = (window.localStorage.getItem("E-mail"))
+            //         document.getElementById("mobile").innerHTML = (window.localStorage.getItem("phone"))
+            //         document.getElementById("gender").innerHTML = (window.localStorage.getItem("Gender"))
+            //         document.getElementById("address").innerHTML = (window.localStorage.getItem("address"))
+            //         document.getElementById("languages").innerHTML = (window.localStorage.getItem("Languages"))
+            //         document.getElementById("D.O.B").innerHTML = (window.localStorage.getItem("D.O.B"))
+            //         document.getElementById("College").innerHTML = (window.localStorage.getItem("college"))
+            //         document.getElementById("Skill").innerHTML = (window.localStorage.getItem("skill"))
+            //         document.getElementById("Password ").innerHTML = (window.localStorage.getItem("password"))
+            //         document.getElementById("Photo").innerHTML = (window.localStorage.getItem("photo"))
+            //         console.log("Button not clicked yet");
+            //     }
+
+            //     buttonClicked = true;
+            // }
+            localStorage.clear();
+            console.log("Local storage cleared");
+            // var newWindow = window.open("validation_form_task.html")
+            location.replace("validation_form_task.html");
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
